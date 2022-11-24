@@ -11,8 +11,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+      child: ListView(
         children: [
           Card(
             elevation: 8,
@@ -22,9 +21,24 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             child: Column(
               children: [
-                const ListTile(
-                  leading: Icon(Icons.add_location_sharp),
-                  title: Text('796, Cheese Avenue, NYC'),
+                ListTile(
+                  leading: const Icon(
+                    Icons.add_location_sharp,
+                    color: Color(0xFFFFA012),
+                  ),
+                  title: RichText(
+                    text: const TextSpan(
+                      children: [
+                        TextSpan(
+                          text: "796 Cheese Avenue, ",
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, color: Colors.black),
+                        ),
+                        TextSpan(
+                            text: "NYC", style: TextStyle(color: Colors.black)),
+                      ],
+                    ),
+                  ),
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 5.0),
@@ -145,27 +159,32 @@ class HorizontalCardWidget extends StatelessWidget {
   ];
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
+    return Container(
+      color: Colors.transparent,
       height: 220,
       child: ListView.builder(
           scrollDirection: Axis.horizontal,
           itemCount: names.length,
           itemBuilder: (context, index) {
-            return SizedBox(
-              height: 220,
+            return Container(
+              color: const Color(0xFFF2F4F5),
               width: 280,
               child: Card(
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(15),
                 ),
-                elevation: 5,
+                elevation: 0,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Container(
-                      height: 120,
-                      color: Colors.grey,
-                    ),
+                    ClipRRect(
+                        borderRadius: BorderRadius.circular(15),
+                        child: Image.asset(
+                          "asset/${index + 1}.jpg",
+                          height: 120,
+                          width: 280,
+                          fit: BoxFit.fitWidth,
+                        )),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 8.0),
                       child: Column(
@@ -224,14 +243,14 @@ class HorizontalCardWidget extends StatelessWidget {
                           Row(
                             children: [
                               Card(
-                               r shape: RoundedRectangleBorder(
+                                shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(8),
                                 ),
                                 child: Padding(
                                   padding: const EdgeInsets.all(8.0),
                                   child: Text(
                                     cards[index][0],
-                                    style: TextStyle(color: Colors.black),
+                                    style: const TextStyle(color: Colors.black),
                                   ),
                                 ),
                               ),
@@ -243,7 +262,7 @@ class HorizontalCardWidget extends StatelessWidget {
                                   padding: const EdgeInsets.all(8.0),
                                   child: Text(
                                     cards[index][1],
-                                    style: TextStyle(color: Colors.black),
+                                    style: const TextStyle(color: Colors.black),
                                   ),
                                 ),
                               ),
@@ -255,7 +274,7 @@ class HorizontalCardWidget extends StatelessWidget {
                                   padding: const EdgeInsets.all(8.0),
                                   child: Text(
                                     cards[index][2],
-                                    style: TextStyle(color: Colors.black),
+                                    style: const TextStyle(color: Colors.black),
                                   ),
                                 ),
                               ),
