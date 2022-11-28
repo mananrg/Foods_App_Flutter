@@ -47,6 +47,21 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^2.0.0
+  cupertino_icons:
+  firebase_core:
+  firebase_auth:
+  cloud_firestore:
+  timeago:
+  intl:
+  image_picker:
+  firebase_storage:
+  toast:
+  image_slider:
+  flutter_svg:
+  geolocator:
+  geocoding:
+  url_launcher:
+
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
